@@ -4,7 +4,10 @@ define("MB", 1048576);
 
 function filterRequest($requestname)
 {
-    return  htmlspecialchars(strip_tags($_POST[$requestname]));
+    if (isset($_POST[$requestname])) {
+        return htmlspecialchars(strip_tags($_POST[$requestname]));
+    }
+    return "";
 }
 
 function getAllData($table, $where = null, $values = null)

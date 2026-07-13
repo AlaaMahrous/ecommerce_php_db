@@ -8,7 +8,7 @@ $email = filterRequest("email");
 $phone = filterRequest("phone");
 $verfiycode     = "0";
 
-$stmt = $con->prepare("SELECT * FROM users WHERE users_email = ? OR users_phone = ? ");
+$stmt = $con->prepare("SELECT * FROM users WHERE user_email = ? OR user_phone = ? ");
 $stmt->execute(array($email, $phone));
 $count = $stmt->rowCount();
 if ($count > 0) {
@@ -16,11 +16,11 @@ if ($count > 0) {
 } else {
 
     $data = array(
-        "users_name" => $username,
-        "users_password" =>  $password,
-        "users_email" => $email,
-        "users_phone" => $phone,
-        "users_verfiycode" => "0",
+        "user_name" => $username,
+        "user_password" =>  $password,
+        "user_email" => $email,
+        "user_phone" => $phone,
+        "user_verfiycode" => "0",
     );
     insertData("users" , $data) ; 
 
