@@ -11,7 +11,7 @@ $count = $stmt->rowCount();
 
 if($count > 0){
     $data = array("user_verfiycode" => $verfiycode );
-    updateData("users", $data , "user_email = '$email");
+    updateData("users", $data, "user_email = '$email'");
     //sendEmail($email , "Verfiy Code Ecommerce" , "Verfiy Code $verfiycode") ; 
 }
 
