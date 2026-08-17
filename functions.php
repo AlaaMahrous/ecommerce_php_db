@@ -24,7 +24,13 @@ function getAllData($table, $where = null, $values = null)
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $count  = $stmt->rowCount();
     if ($count > 0) {
-        echo json_encode(array("status" => "success", "data" => $data));
+        echo json_encode(
+    array(
+        "status" => "success",
+        "data" => $data,
+    ),
+    JSON_UNESCAPED_UNICODE
+    );
     } else {
         echo json_encode(array("status" => "failure"));
     }
